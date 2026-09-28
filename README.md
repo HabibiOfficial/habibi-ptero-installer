@@ -37,19 +37,18 @@ Selama install, password database & password admin bisa **di-generate otomatis**
 
 ## 🚀 Cara Pakai
 
-```bash
-curl -sL https://raw.githubusercontent.com/HabibiOfficial/habibi-ptero-installer/main/install.sh | sudo bash
-```
-
-Jalankan one-liner di atas langsung di VPS (sebagai root / pakai sudo).
-
-Alternatif yang lebih aman (download dulu, baca dulu, baru jalankan):
+Jalankan perintah ini di VPS (sebagai root / pakai sudo):
 
 ```bash
 curl -sSL -o install.sh https://raw.githubusercontent.com/HabibiOfficial/habibi-ptero-installer/main/install.sh
 chmod +x install.sh
 sudo ./install.sh
 ```
+
+> ⚠️ Jangan dijalankan dengan `curl ... | sudo bash` — script ini interaktif
+> (menu pilihan + tanya jawab) dan butuh keyboard. Kalau di-pipe, menunya akan
+> nge-loop tanpa henti. Script akan menolak berjalan dan menampilkan cara yang
+> benar kalau kamu mencobanya.
 
 Lalu tinggal pilih menu angka **1–9** dan ikuti pertanyaannya (semua Bahasa Indonesia).
 
