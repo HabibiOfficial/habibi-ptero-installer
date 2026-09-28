@@ -727,6 +727,18 @@ tampilkan_menu() {
 }
 
 main() {
+    # Script ini 100% interaktif (menu + tanya jawab), jadi WAJIB dijalankan
+    # dengan keyboard asli. Kalau dijalankan via pipe (curl ... | bash),
+    # stdin bukan terminal -> read langsung EOF -> menu nge-loop tanpa henti.
+    if [[ ! -t 0 ]]; then
+        err "Script ini interaktif dan butuh keyboard. Jangan dijalankan dengan:"
+        err "  curl ... | sudo bash"
+        err "Cara yang benar:"
+        err "  curl -sSL -o install.sh https://raw.githubusercontent.com/HabibiOfficial/habibi-ptero-installer/main/install.sh"
+        err "  chmod +x install.sh"
+        err "  sudo ./install.sh"
+        exit 1
+    fi
     need_root
     check_os
     trap 'echo; err "Dibatalkan oleh user."; exit 130' INT
